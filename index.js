@@ -3,18 +3,19 @@ const app = express()
 const port = 3000
 const nodemailer = require("nodemailer");
 import transporter from './transporter'
+const cors = require('cors')
 
 app.use(express.json())
-app.use(corse())
+app.use(cors())
 app.use(express.urlencoded({ extended: false }))
 
-app.get('/', (req, res) => {
-  res.send('todo ok')
+app.get('/', function (req, res, next) {
+  res.send('hello')
 })
 
-app.post('/contact-form', (req, res) => {
 
-  
+app.post('/contact-form', (req, res) => {
+ 
   async function main() {
 
     let data = req.body
