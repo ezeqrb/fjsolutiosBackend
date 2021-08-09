@@ -7,7 +7,13 @@ import transporter from './transporter'
 app.use(express.json())
 app.use(corse())
 app.use(express.urlencoded({ extended: false }))
+
+app.get('/', (req, res) => {
+  res.send('todo ok')
+})
+
 app.post('/contact-form', (req, res) => {
+
   
   async function main() {
 
