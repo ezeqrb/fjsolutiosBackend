@@ -9,11 +9,6 @@ app.use(express.json())
 app.use(cors())
 app.use(express.urlencoded({ extended: false }))
 
-app.get('/', function (req, res) {
-  console.log('que onda wacho')
-  res.send('hello')
-})
-
 
 app.post('/contact-form', (req, res) => {
 
@@ -25,7 +20,8 @@ app.post('/contact-form', (req, res) => {
   
     // create reusable transporter object using the default SMTP transport
     
-  
+    console.log(req.body)
+    console.log(data)
     // send mail with defined transport object
     let info = await transporter.sendMail({
       from: `${data.email.map((a)=>a)}`, // sender address
