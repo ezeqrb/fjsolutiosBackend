@@ -1,6 +1,6 @@
 const transporter = require ('./transporter')
 const express = require('express')
-const port = 3000
+const port = process.env.PORT || 3000
 const nodemailer = require("nodemailer");
 const cors = require('cors')
 const app = express()
@@ -9,13 +9,14 @@ app.use(express.json())
 app.use(cors())
 app.use(express.urlencoded({ extended: false }))
 
-app.get('/', function (req, res, next) {
+app.get('/', function (req, res) {
+  console.log('que onda wacho')
   res.send('hello')
 })
 
 
 app.post('/contact-form', (req, res) => {
- 
+
   async function main() {
 
     let data = req.body
@@ -42,7 +43,6 @@ app.post('/contact-form', (req, res) => {
   }
   
   main().catch(console.error);
-  
   
   res.send('nice')
 })
