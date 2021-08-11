@@ -24,7 +24,7 @@ app.post('/contact-form', (req, res) => {
     console.log(data)
     // send mail with defined transport object
     let info = await transporter.sendMail({
-      from: `${data.email.map((a)=>a)}`, // sender address
+      from: `${data.email}`, // sender address
       to: "infofjsolution@gmail.com", // list of receivers
       subject: "Hello ✔ Nueva Consulta por Formulario", // Subject line
       text: `Hello FJ Solutions : ${data.firstName} ${data.lastName}, ${data.message}`, // plain text body
