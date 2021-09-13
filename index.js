@@ -27,7 +27,7 @@ app.post('/contact-form', (req, res) => {
       from: `${data.email}`, // sender address
       to: "infofjsolution@gmail.com", // list of receivers
       subject: "Hello ✔ Nueva Consulta por Formulario", // Subject line
-      text: `Hello FJ Solutions : ${data.firstName} ${data.lastName}, ${data.message}`, // plain text body
+      text: `Hello FJ Solutions : ${data.firstName} / ${data.lastName} / ${data.message} / ${data.email} `, // plain text body
     });
   
     console.log("Message sent: %s", info.messageId);
